@@ -33,6 +33,11 @@ class ProductsAPI extends ObjectState{
         store.dispatch(isFetching())
         return this.fetch({ params: { limit: productPerPageLimit, active: active || null, promo: promo || null } })
     }
+
+    public getProductsBySearch = (search:string, active: boolean, promo: boolean) => {
+        store.dispatch(isFetching())
+        return this.fetch({ params: { limit: productPerPageLimit, search: search, active: active || null, promo: promo || null } })
+    }
 }
 
 const productsAPI = new ProductsAPI(options)
