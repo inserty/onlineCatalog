@@ -50,12 +50,16 @@ const SearchProduct: FunctionComponent<any> = () => {
         type={'text'}
         placeholder={'Search'}
         onChange={handleChange}
+        onKeyPress={(event) => {
+          if (event.key === 'Enter') {
+            value.length > 0 && searchProducts(event)
+          }
+        }}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="productSearchLabel"
               onClick={searchProducts}
-              onDragEnterCapture={searchProducts}
               edge="end"
             >
               <Search />

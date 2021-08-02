@@ -15,6 +15,11 @@ export const saveCatalog = (data) => ({
     payload: data
 });
 
+export const saveSelectedProduct = (data) => ({
+    type: catalogActions.SAVE_SELECTED_PRODUCT,
+    payload: data
+});
+
 export const isFetching = () => ({
     type: catalogActions.IS_FETCHING
 })

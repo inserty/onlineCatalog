@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from "react";
 
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Button, makeStyles, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { saveSelectedProduct } from "../../../../core/shared/store/actions/catalog/onlineCatalog.actions";
 
 const ActiveProduct = withStyles({
     root: {
@@ -37,19 +38,22 @@ interface ProductButtonProps {
 
 const ProductButton: FunctionComponent<any> = (props) => {
     const { product } = props
+    const dispatch = useDispatch()
 
     return (
         <div>
-        {product.active ? 
-            <ActiveProduct variant="outlined" size="large" >
-                Show details
-            </ActiveProduct>
-        :
-            <NoActiveProduct disabled variant="outlined" size="large" >
-                Unavailable
-            </NoActiveProduct>
-        }
-    </div>
+            {product.active ? 
+                <>
+                    <ActiveProduct variant="outlined" size="large" onClick={() => dispatch(saveSelectedProduct(product))}>
+                        Show details
+                    </ActiveProduct>
+                </>
+            :
+                <NoActiveProduct disabled variant="outlined" size="large" >
+                    Unavailable
+                </NoActiveProduct>
+            }
+        </div>
     );
 
 }
