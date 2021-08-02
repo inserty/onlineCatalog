@@ -1,18 +1,13 @@
 import React, { FunctionComponent } from "react";
 import clsx from 'clsx';
-import Input from '@material-ui/core/Input';
-import FilledInput from '@material-ui/core/FilledInput';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { IconButton, makeStyles } from "@material-ui/core";
-import { useDispatch } from "react-redux";
-import { } from "../../../../core/shared/store/actions/catalog/onlineCatalog.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { saveCatalog } from "../../../../core/shared/store/actions/catalog/onlineCatalog.actions";
+import productsAPI from "../../services/ProductsAPI";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,21 +29,33 @@ const useStyles = makeStyles((theme) => ({
 const SearchProduct: FunctionComponent<any> = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const [value, setValue] = React.useState('');
 
-  const addTask = () => { }
+  const isActiveProducts = useSelector<any, any>(state => state?.OnlineCatalog?.isActiveProducts);
+  const isPromoProducts = useSelector<any, any>(state => state?.OnlineCatalog?.isPromoProducts);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const searchProducts = (event) => {
+    productsAPI.getProductsBySearch(value, isActiveProducts, isPromoProducts).then(data => dispatch(saveCatalog(data)))
+  }
+
   return (
     <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
       <OutlinedInput
         id="productSearchInput"
+        value={value}
         type={'text'}
         placeholder={'Search'}
-        onChange={() => {}}
+        onChange={handleChange}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
               aria-label="productSearchLabel"
-              onClick={() => {}}
-              // onMouseDown={}
+              onClick={searchProducts}
+              onDragEnterCapture={searchProducts}
               edge="end"
             >
               <Search />
