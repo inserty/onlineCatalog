@@ -17,7 +17,7 @@ const OnlineCatalog: FunctionComponent<any> = () => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, `flex flex-col h-full`)}>
+    <div className={clsx(classes.root, `flex flex-col h-screen`)}>
         <Paper className={`flex flex-col`} elevation={0}>
           <PageHeader/>
         </Paper>
