@@ -4,7 +4,8 @@ import { Grid, makeStyles, Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     mainTextSize: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 600
     },
   }));
   
