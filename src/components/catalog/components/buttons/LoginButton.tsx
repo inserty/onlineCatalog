@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 
+import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 
@@ -16,8 +17,11 @@ const StyledButton = withStyles({
   })(Button);
 
 const LoginButton: FunctionComponent<any> = (props) => {
-
-    const onClick = () => {}
+    let history = useHistory();
+    
+    const onClick = () => {
+      history.push("/login");
+    }
 
     return (
         <div>
