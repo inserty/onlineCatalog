@@ -4,7 +4,6 @@ import PageHeader from "./header/PageHeader";
 import clsx from 'clsx';
 import ProductsList from "./components/products/ProductsList";
 import Paginations from "./components/pagination/Paginations";
-import BusyIndicator from "../../core/components/busy/BusyIndicator";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +16,7 @@ const OnlineCatalog: FunctionComponent<any> = () => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, `flex flex-col h-screen`)}>
+    <div className={clsx(classes.root, `flex flex-col h-full`)}>
         <Paper className={`flex flex-col`} elevation={0}>
           <PageHeader/>
         </Paper>

@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: {
         lineHeight: '40px',
-        fontSize: '24px'
+        fontSize: '24px',
+        fontWeight: 600
     }
 }));
 
