@@ -20,6 +20,11 @@ export const saveSelectedProduct = (data) => ({
     payload: data
 });
 
+export const saveProductQuery = (data) => ({
+    type: catalogActions.SAVE_PRODUCT_QUERY,
+    payload: data
+});
+
 export const isFetching = () => ({
     type: catalogActions.IS_FETCHING
 })

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FormControlLabel } from "@material-ui/core";
 import ProductCheckBox from "./ProductCheckBox";
 import productsAPI from "../../services/ProductsAPI";
@@ -11,15 +11,16 @@ const FilterProducts: FunctionComponent<any> = (props) => {
 
     const [active, setActive] = React.useState(false);
     const [promo, setPromo] = React.useState(false);
+    const productQuery = useSelector<any, string>(state => state?.OnlineCatalog?.productQuery);
 
     const activeHandleChange = (event) => {
-        productsAPI.getFilteredProducts(event.target.checked, promo).then(data => dispatch(saveCatalog(data)))
+        productsAPI.getFilteredProducts(event.target.checked, promo, productQuery).then(data => dispatch(saveCatalog(data)))
         dispatch(isActiveProducts(event.target.checked))
         setActive(event.target.checked);
     };
 
     const promoHandleChange = (event) => {
-        productsAPI.getFilteredProducts(active, event.target.checked).then(data => dispatch(saveCatalog(data)))
+        productsAPI.getFilteredProducts(active, event.target.checked, productQuery).then(data => dispatch(saveCatalog(data)))
         dispatch(isPromoProducts(event.target.checked))
         setPromo(event.target.checked);
     };

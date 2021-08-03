@@ -24,19 +24,19 @@ class ProductsAPI extends ObjectState{
         return this.fetch({ params: { limit: productPerPageLimit } })
     }
 
-    public getProductsByPage = (pageNumber:number, active: boolean, promo: boolean) => {
+    public getProductsByPage = (pageNumber:number, active: boolean, promo: boolean, productQuery: string) => {
         store.dispatch(isFetching())
-        return this.fetch({ params: { limit: productPerPageLimit, page: pageNumber, active: active || null, promo: promo || null } })
+        return this.fetch({ params: { limit: productPerPageLimit, page: pageNumber, active: active || null, promo: promo || null, search: productQuery || null } })
     }
 
-    public getFilteredProducts = (active: boolean, promo: boolean) => {
+    public getFilteredProducts = (active: boolean, promo: boolean, productQuery: string) => {
         store.dispatch(isFetching())
-        return this.fetch({ params: { limit: productPerPageLimit, active: active || null, promo: promo || null } })
+        return this.fetch({ params: { limit: productPerPageLimit, active: active || null, promo: promo || null, search: productQuery || null } })
     }
 
-    public getProductsBySearch = (search:string, active: boolean, promo: boolean) => {
+    public getProductsBySearch = (productQuery:string, active: boolean, promo: boolean) => {
         store.dispatch(isFetching())
-        return this.fetch({ params: { limit: productPerPageLimit, search: search || null, active: active || null, promo: promo || null } })
+        return this.fetch({ params: { limit: productPerPageLimit, search: productQuery || null, active: active || null, promo: promo || null } })
     }
 }
 

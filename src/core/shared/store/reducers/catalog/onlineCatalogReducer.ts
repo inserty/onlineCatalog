@@ -3,6 +3,7 @@ import * as catalogActions from "../../types/catalog/onlineCatalogActionTypes";
 const initialState = {
   products: {} as any,
   selectedProduct: null,
+  productQuery: null,
   isFetching: false,
   isPromoProducts: false,
   isActiveProducts: false,
@@ -37,6 +38,12 @@ const initialState = {
       return {
         ...state,
         selectedProduct: action.payload
+      };
+    }
+    case catalogActions.SAVE_PRODUCT_QUERY: {
+      return {
+        ...state,
+        productQuery: action.payload
       };
     }
     case catalogActions.IS_FETCHING: {

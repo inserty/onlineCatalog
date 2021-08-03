@@ -20,13 +20,14 @@ const Pagination: FunctionComponent<any> = () => {
     const metaData = useSelector<any, any>(state => state?.OnlineCatalog?.products?.meta);
     const isActiveProducts = useSelector<any, any>(state => state?.OnlineCatalog?.isActiveProducts);
     const isPromoProducts = useSelector<any, any>(state => state?.OnlineCatalog?.isPromoProducts);
+    const productQuery = useSelector<any, string>(state => state?.OnlineCatalog?.productQuery);
 
     const currentPage = metaData?.currentPage
     const totalPages = metaData?.totalPages
 
     const onPageClick = (pageNumber: any) => {
         if(pageNumber) {
-            productsAPI.getProductsByPage(pageNumber, isActiveProducts, isPromoProducts).then(data => dispatch(saveCatalog(data)))
+            productsAPI.getProductsByPage(pageNumber, isActiveProducts, isPromoProducts, productQuery).then(data => dispatch(saveCatalog(data)))
         }
     }
 

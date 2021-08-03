@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Search from '@material-ui/icons/Search';
 import { IconButton, makeStyles } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { saveCatalog } from "../../../../core/shared/store/actions/catalog/onlineCatalog.actions";
+import { saveCatalog, saveProductQuery } from "../../../../core/shared/store/actions/catalog/onlineCatalog.actions";
 import productsAPI from "../../services/ProductsAPI";
 
 
@@ -36,6 +36,7 @@ const SearchProduct: FunctionComponent<any> = () => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    dispatch(saveProductQuery(event.target.value))
   }
 
   const searchProducts = (event) => {
@@ -52,7 +53,7 @@ const SearchProduct: FunctionComponent<any> = () => {
         onChange={handleChange}
         onKeyPress={(event) => {
           if (event.key === 'Enter') {
-            value.length > 0 && searchProducts(event)
+            searchProducts(event)
           }
         }}
         endAdornment={
