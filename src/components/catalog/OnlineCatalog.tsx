@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F0F1F5'
+    backgroundColor: '#F2F2F2'
   },
 }));
 
@@ -16,7 +16,7 @@ const OnlineCatalog: FunctionComponent<any> = () => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, `flex flex-col h-full`)}>
+    <div className={clsx(classes.root, `flex flex-col`)}>
         <Paper className={`flex flex-col`} elevation={0}>
           <PageHeader/>
         </Paper>

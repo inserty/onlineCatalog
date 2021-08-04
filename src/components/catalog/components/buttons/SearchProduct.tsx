@@ -16,8 +16,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   margin: {
-    margin: theme.spacing(1),
-  },
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(1),
+  }},
   withoutLabel: {
     marginTop: theme.spacing(3),
   },

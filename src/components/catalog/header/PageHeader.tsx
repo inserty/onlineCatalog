@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 const PageHeader: FunctionComponent<any> = () => {
     const classes = useStyles();
     return (
-        <div>
-            <div className={'flex items-center p-10 w-full'}>
+        <>
+            <div className={'items-center p-10 w-full lg:flex sm: hidden'}>
                 <div className={'w-1/6'}>
                     <Typography className={`${classes.logo}`}>join.tsh.io</Typography>
                 </div>
@@ -44,7 +44,21 @@ const PageHeader: FunctionComponent<any> = () => {
                     <LoginButton/>
                 </div>
             </div>
-        </div>
+
+            <div className={'items-center p-10 lg:hidden sm: flex flex-col'}>
+                <div className={`flex flex-row w-full justify-between m-4`}>
+                    <Typography className={`${classes.logo}`}>join.tsh.io</Typography>
+                    <LoginButton/>
+                </div>
+                <div className={'flex items-center w-full'}>
+                    <SearchProduct />
+                </div>
+
+                <div className={'flex items-center w-full'}>
+                    <ProductHeaderFilter />
+                </div>
+            </div>
+        </>
     );
 
 }

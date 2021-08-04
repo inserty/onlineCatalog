@@ -5,11 +5,7 @@ import FilterProducts from "../components/buttons/FilterProducts";
 
 const ProductHeaderFilter: FunctionComponent<any> = () => {
     return (
-        <FormControl component="fieldset">
-            <FormGroup aria-label="position" row>
-                <FilterProducts/>
-            </FormGroup>
-        </FormControl>
+        <FilterProducts/>
     );
 }
 

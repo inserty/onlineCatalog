@@ -8,6 +8,8 @@ const useStyles = makeStyles({
         backgroundImage: `url(${props.image})`,
         height: '100%',
         width: '100%',
+        borderStartEndRadius: 8,
+        borderStartStartRadius: 8
     })
 });
 

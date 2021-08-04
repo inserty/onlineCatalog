@@ -12,7 +12,7 @@ import BusyIndicator from "../../../../core/components/busy/BusyIndicator";
 import ProductDetails from "./productDetailsDialog/ProductDetails";
 
 const useStyles = makeStyles((theme) => ({
-   
+
   }));
 
 const ProductsList: FunctionComponent<any> = () => {
@@ -28,9 +28,9 @@ const ProductsList: FunctionComponent<any> = () => {
     return (
         <BusyIndicator loading={isFetching}>
             {products?.length > 0 ?
-                <>
-                    <div className={`flex justify-center w-full p-20`}>
-                        <Grid container alignItems="stretch" spacing={6}>
+                <div className={`w-full`}>
+                    <div className={`w-full flex items-center justify-center p-10`}>
+                        <Grid container alignItems="stretch" spacing={4}>
                             {
                                 products.map(product => {
                                     return <Product key={product?.id} product={product} />
@@ -39,7 +39,7 @@ const ProductsList: FunctionComponent<any> = () => {
                         </Grid>
                     </div>
                     <ProductDetails/>
-                </>
+                </div>
             : <NoProducts />}
         </BusyIndicator>
     );
