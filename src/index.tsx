@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import thunk from 'redux-thunk';
-import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import store from './core/shared/store/store'
 
@@ -13,6 +11,14 @@ ReactDOM.render(
         <App />
     </Provider>
 ,document.getElementById('root'));
+
+
+// @ts-ignore
+if (window.Cypress) {
+    // @ts-ignore
+    window.__store__ = store;
+}
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
