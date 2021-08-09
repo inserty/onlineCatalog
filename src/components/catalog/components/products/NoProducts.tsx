@@ -27,7 +27,7 @@ const NoProducts: FunctionComponent<any> = () => {
                     <ShoppingBasketIcon className={classes.icon}/>
                 </div>
 
-                <div className={`flex flex-col justify-center items-center`}>
+                <div id="noProducts" className={`flex flex-col justify-center items-center`}>
                     <Typography className={classes.mainTextSize}>{`Ooops… It’s empty here`}</Typography>
                     <Typography className={classes.secondaryTextSize}>{`There are no products on the list`}</Typography>
                 </div>

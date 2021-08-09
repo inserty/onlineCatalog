@@ -1,0 +1,6 @@
+{
+    "component": {
+      "testFiles": "integration/*/*.spec.{js,ts,jsx,tsx}",
+      "componentFolder": "cypress"
+    }
+}

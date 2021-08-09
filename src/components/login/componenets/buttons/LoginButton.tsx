@@ -26,7 +26,7 @@ const LoginButton: FunctionComponent<any> = (props) => {
     const onClick = () => {}
 
     return (
-        <div className={'w-full'}>
+        <div id="loginButton" className={'w-full'}>
             <StyledButton fullWidth variant="outlined" onClick={onClick} size="large" >
                 Log in
             </StyledButton>

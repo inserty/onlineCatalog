@@ -30,7 +30,7 @@ const ProductsList: FunctionComponent<any> = () => {
             {products?.length > 0 ?
                 <div className={`w-full`}>
                     <div className={`w-full flex items-center justify-center p-10`}>
-                        <Grid container alignItems="stretch" spacing={4}>
+                        <Grid id="productList" container alignItems="stretch" spacing={4}>
                             {
                                 products.map(product => {
                                     return <Product key={product?.id} product={product} />
