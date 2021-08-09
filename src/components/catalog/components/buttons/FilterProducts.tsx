@@ -30,6 +30,7 @@ const FilterProducts: FunctionComponent<any> = (props) => {
             <div>
                 <FormControlLabel
                     value="end"
+                    id="activeCheckbox"
                     control={<ProductCheckBox onChange={activeHandleChange}/>}
                     label="Active"
                     labelPlacement="end"
@@ -38,6 +39,7 @@ const FilterProducts: FunctionComponent<any> = (props) => {
             <div>
                 <FormControlLabel
                     value="end"
+                    id="promoCheckbox"
                     control={<ProductCheckBox onChange={promoHandleChange}/>}
                     label="Promo"
                     labelPlacement="end"

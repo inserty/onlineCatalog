@@ -30,11 +30,11 @@ const LoginForm: FunctionComponent<any> = () => {
                 <Typography className={`${classes.textLogo}`}>Login</Typography>
                 <div className={`flex flex-col w-full`}>
                     <Typography className={`${classes.inputLabel}`}>Username</Typography>
-                    <TextField id="outlined-basic" variant="outlined" />
+                    <TextField id="login" variant="outlined" />
                 </div>
                 <div className={`flex flex-col w-full`}>
                 <Typography className={`${classes.inputLabel}`}>Password</Typography>
-                    <TextField type={'Password'} id="outlined-basic" variant="outlined" />
+                    <TextField type={'Password'} id="password" variant="outlined" />
                 </div>
             </div>
         </BusyIndicator>
